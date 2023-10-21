@@ -1,0 +1,126 @@
+/* Course: SENG 513 */
+/* Date: OCT 12, 2023 */
+/* Assignment 2 */
+/* Name: Raine Legary */
+/* UCID: 30123317 */
+* {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  --header-height: 15vh;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: var(--header-height);
+}
+header #game-title {
+  display: inline-block;
+  width: 12rem;
+  padding: 1rem;
+}
+header #wind-direction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+header #wind-direction p {
+  color: #a6d9e3;
+}
+header #wind-direction #wind-dir-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a6d9e3;
+  width: 3em;
+  height: 3rem;
+  border-radius: 50%;
+  padding: 1rem;
+  margin: 0.5rem;
+  overflow: hidden;
+}
+header #wind-direction #wind-dir-circle img {
+  transform: rotate(315deg);
+}
+header #defense-offense {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+header #defense-offense .slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8rem;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  background: #d5d5d5;
+  overflow: visible;
+  margin: 1rem;
+}
+header #defense-offense .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #6d03cb;
+  cursor: pointer;
+}
+header #defense-offense .slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #6d03cb;
+  cursor: pointer;
+}
+header #deploy-new {
+  display: block;
+}
+header #done-turn {
+  padding: 1rem;
+}
+header #new-game {
+  padding: 1rem;
+}
+
+#board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5dcc61;
+  --available-w: 100vw;
+  --available-h: calc(100vh - var(--header-height));
+  width: var(--available-w);
+  height: var(--available-h);
+  --board-sz: calc(min(var(--available-w) * 0.8, var(--available-h) * 0.8));
+  --tile-sz: calc(var(--board-sz) / 10);
+}
+#board #grid {
+  background-color: #492626;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--board-sz) * 1.1);
+  height: calc(var(--board-sz) * 1.1);
+}
+#board #grid .board-row {
+  display: flex;
+  width: var(--board-sz);
+  height: var(--tile-sz);
+}
+#board #grid .board-row div {
+  background-color: #2659b0;
+  width: var(--tile-sz);
+  height: var(--tile-sz);
+  border: 1px solid #492626;
+}/*# sourceMappingURL=main.css.map */
