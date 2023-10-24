@@ -3,106 +3,250 @@
 /* Assignment 2 */
 /* Name: Raine Legary */
 /* UCID: 30123317 */
+/* Course: SENG 513 */
+/* Date: OCT 12, 2023 */
+/* Assignment 2 */
+/* Name: Raine Legary */
+/* UCID: 30123317 */
 * {
   font-family: Arial, sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  --header-height: 15vh;
+  --header-height: 25vh;
 }
 
+@media only screen and (max-width: 1024px) {
+  * {
+    --header-height: 40vh;
+  }
+}
+@media only screen and (max-width: 768px) {
+  * {
+    --header-height: 55vh;
+  }
+}
+@media only screen and (max-width: 480px) {
+  * {
+    --header-height: 45vh;
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  * {
+    --header-height: 40vh;
+    font-size: 8px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  * {
+    --header-height: 50vh;
+    font-size: 8px;
+  }
+  h1 {
+    font-size: 16px;
+  }
+}
 header {
-  background-color: #000;
-  color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  background-image: url("/assets/clouds.jpg");
+  background-size: 300%;
+  background-position: 40% 30%;
+  color: #fff;
   height: var(--header-height);
+  border: 0.25rem solid #1a0d0b;
 }
-header #game-title {
+header #header-left {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+header #header-left #game-title {
   display: inline-block;
   width: 12rem;
-  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(48, 47, 47, 0.8392156863);
+  border: 2px solid #1a0d0b;
+  color: #d5ab36;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
 }
-header #wind-direction {
+@media only screen and (max-width: 768px) {
+  header #header-left #game-title {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+header #header-left p {
+  background-color: rgba(48, 47, 47, 0.8392156863);
+  border: solid 2px #1a0d0b;
+  padding: 2px 8px;
+  border-radius: 16px;
+}
+header #header-left #wind-direction {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem;
+  margin: 8px 10px;
 }
-header #wind-direction p {
+header #header-left #wind-direction p {
   color: #a6d9e3;
 }
-header #wind-direction #wind-dir-circle {
+header #header-left #wind-direction #wind-dir-circle {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #a6d9e3;
-  width: 3em;
+  width: 3rem;
   height: 3rem;
   border-radius: 50%;
+  border: 1px solid #1a0d0b;
   padding: 1rem;
   margin: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
-header #wind-direction #wind-dir-circle img {
+header #header-left #wind-direction #wind-dir-circle img {
   transform: rotate(315deg);
 }
-header #defense-offense {
+header #header-left #defense-offense {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem;
+  margin: 8px 10px;
 }
-header #defense-offense .slider {
+header #header-left #defense-offense p .defense-color {
+  color: #507ceb;
+}
+header #header-left #defense-offense p .defense-offense-color {
+  color: #fff;
+}
+header #header-left #defense-offense p .offense-color {
+  color: #e72721;
+}
+header #header-left #defense-offense .slider {
   -webkit-appearance: none;
   appearance: none;
   width: 8rem;
   height: 0.5rem;
   border-radius: 0.25rem;
-  background: #d5d5d5;
+  background: #deedf5;
   overflow: visible;
   margin: 1rem;
+  cursor: pointer;
 }
-header #defense-offense .slider::-webkit-slider-thumb {
+header #header-left #defense-offense .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
-  background: #6d03cb;
-  cursor: pointer;
+  background: #1d0d0c;
+  border: 2px solid #5e32f1;
 }
-header #defense-offense .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+header #header-left #defense-offense .slider::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
-  background: #6d03cb;
-  cursor: pointer;
+  background: #1d0d0c;
+  border: 2px solid #5e32f1;
 }
-header #deploy-new {
+header #header-left #deploy-gather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6px 6px;
+}
+header #header-left #deploy-gather p {
+  display: inline-block;
+  color: #d5ab36;
+  margin: 0px 0px 8px;
+}
+header #header-left #deploy-gather #deploying-button {
   display: block;
+  color: rgb(152, 247, 128);
+  margin: 8px 0px 0px;
 }
-header #done-turn {
-  padding: 1rem;
+header #header-left #deploy-gather #gathering-button {
+  display: none;
+  color: rgb(239, 119, 119);
+  margin: 8px 0px 0px;
 }
-header #new-game {
-  padding: 1rem;
+header #header-right {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+header #header-right #done-turn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 8px 10px;
+}
+header #header-right #new-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 8px 10px;
+}
+header #header-right #new-game #num-players {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 8px 0;
+  display: visible;
+}
+@media only screen and (max-width: 1024px) {
+  header #header-left {
+    display: flex;
+    width: 100%;
+  }
+  header #header-right {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+header button {
+  background-color: #1f1364;
+  border: 2px solid #3645ed;
+  color: #fff;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 #board {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5dcc61;
+  background-image: url("/assets/forest.jpg");
+  background-size: cover;
   --available-w: 100vw;
   --available-h: calc(100vh - var(--header-height));
   width: var(--available-w);
   height: var(--available-h);
   --board-sz: calc(min(var(--available-w) * 0.8, var(--available-h) * 0.8));
   --tile-sz: calc(var(--board-sz) / 10);
+  border: 0.25rem solid #1a0d0b;
 }
 #board #grid {
   background-color: #492626;
@@ -119,8 +263,20 @@ header #new-game {
   height: var(--tile-sz);
 }
 #board #grid .board-row div {
-  background-color: #2659b0;
+  background-color: #226f3a;
   width: var(--tile-sz);
   height: var(--tile-sz);
   border: 1px solid #492626;
+}
+#board #grid .board-row .p1 {
+  background-color: #d5ab36;
+}
+#board #grid .board-row .p2 {
+  background-color: #2491b8;
+}
+#board #grid .board-row .p3 {
+  background-color: #5a4acf;
+}
+#board #grid .board-row .p4 {
+  background-color: #cd4d23;
 }/*# sourceMappingURL=main.css.map */

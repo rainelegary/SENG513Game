@@ -12,98 +12,264 @@
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    --header-height: 15vh;
+    --header-height: 25vh;
 }
 
-header {
-    background-color: $c-header;
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    height: var(--header-height);
+@media only screen and (max-width: 1024px) {
+    * {
+        --header-height: 40vh;
+    }
+}
 
-    #game-title {
-        display: inline-block;
-        width: 12rem;
-        padding: 1rem;
+@media only screen and (max-width: 768px) {
+    * {
+        --header-height: 55vh;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    * {
+        --header-height: 45vh;
+        font-size: 12px;
     }
 
-    #wind-direction {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 1rem;
+    h1 {
+        font-size: 24px;
+    }
 
-        p {
-            color: $c-wind-dir-circle;
+}
+
+@media only screen and (max-width: 360px) {
+    * {
+        --header-height: 40vh;
+        font-size: 8px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    * {
+        --header-height: 50vh;
+        font-size: 8px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+}
+
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    // background-color: $c-header;
+    background-image: url("/assets/clouds.jpg");
+    background-size: 300%;
+    background-position: 40% 30%;
+    color: #fff;
+    height: var(--header-height);
+    border: 0.25rem solid $c-primary-border;
+
+    #header-left {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        #game-title {
+            display: inline-block;
+            width: 12rem;
+            border-radius: 1rem;
+            background-color: $c-text-bg;
+            border: 2px solid $c-primary-border;
+            color: $c-current-player;
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
         }
 
-        #wind-dir-circle {
+        @media only screen and (max-width: 768px) {
+            #game-title {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+        }
+        
+        p {
+            background-color: $c-text-bg;
+            border: solid 2px $c-primary-border;
+            padding: 2px 8px;
+            border-radius: 16px;
+        }
+        
+    
+        #wind-direction {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            background-color: $c-wind-dir-circle;
-            width: 3em;
-            height: 3rem;
-            border-radius: 50%;
-            padding: 1rem;
-            margin: 0.5rem;
-            overflow: hidden;
+            margin: 8px 10px;
+    
+            p {
+                color: $c-wind-dir-circle;
+            }
+    
+            #wind-dir-circle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $c-wind-dir-circle;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                border: 1px solid $c-primary-border;
+                padding: 1rem;
+                margin: 0.5rem;
+                overflow: hidden;
+                cursor: pointer;
+    
+                img {
+                    transform: rotate(315deg);
+                }
+            }
+        }
+    
+        #defense-offense {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 8px 10px;
 
-            img {
-                transform: rotate(315deg);
+            p {
+                .defense-color {
+                    color: $c-defense;
+                }
+
+                .defense-offense-color {
+                    color: $c-defense-offense;
+                }
+
+                .offense-color {
+                    color: $c-offense;
+                }
+            }
+    
+            .slider {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 8rem;
+                height: 0.5rem;
+                border-radius: 0.25rem;  
+                background: $c-slider-bg;
+                overflow: visible;
+                margin: 1rem;
+                cursor: pointer;
+            }
+              
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%; 
+                background: $c-slider-thumb;
+                border: 2px solid $c-slider-thumb-border;
+            }
+            
+            .slider::-moz-range-thumb {
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background: $c-slider-thumb;
+                border: 2px solid $c-slider-thumb-border;
+            }
+        }
+
+        #deploy-gather {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 6px 6px;
+
+            p {
+                display: inline-block;
+                color: $c-current-player;
+                margin: 0px 0px 8px;
+            }
+
+            #deploying-button {
+                display: block;
+                color: $c-deploying;
+                margin: 8px 0px 0px;
+            }
+
+            #gathering-button {
+                display: none;
+                color: $c-gathering;
+                margin: 8px 0px 0px;
             }
         }
     }
 
-    #defense-offense {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 1rem;
+    #header-right {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-start;
+    
+        #done-turn {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 8px 10px;
+        }
+    
+        #new-game {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 8px 10px;
 
-        .slider {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 8rem;
-            height: 0.5rem;
-            border-radius: 0.25rem;  
-            background: #d5d5d5;
-            overflow: visible;
-            margin: 1rem;
-        }
-          
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%; 
-            background: #6d03cb;
-            cursor: pointer;
-        }
-        
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #6d03cb;
-            cursor: pointer;
+            #num-players {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 8px 0;
+                display: visible;
+            }
         }
     }
 
-    #deploy-new {
-        display: block;
+    @media only screen and (max-width: 1024px) {
+        #header-left {
+            display: flex;
+            width: 100%;
+        }
+
+        #header-right {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
     }
 
-    #done-turn {
-        padding: 1rem;
-    }
-
-    #new-game {
-        padding: 1rem;
+    button {
+        background-color: $c-button;
+        border: 2px solid $c-button-border;
+        color: $c-button-text;
+        padding: 8px 16px;
+        text-align: center;
+        font-size: 1rem;
+        cursor: pointer;
     }
 }
 
@@ -111,13 +277,16 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $c-green;
+    // background-color: $c-green;
+    background-image: url("/assets/forest.jpg");
+    background-size: cover;
     --available-w: 100vw;
     --available-h: calc(100vh - var(--header-height));
     width: var(--available-w);
     height: var(--available-h);
     --board-sz: calc(min(var(--available-w) * 0.8, var(--available-h) * 0.8));
     --tile-sz: calc(var(--board-sz) / 10);
+    border: 0.25rem solid $c-primary-border;
 
     #grid {
         background-color: $c-board-bg;
@@ -138,6 +307,22 @@ header {
                 width: var(--tile-sz);
                 height: var(--tile-sz);
                 border: 1px solid $c-board-bg;
+            }
+
+            .p1 {
+                background-color: $c-p1;
+            }
+
+            .p2 {
+                background-color: $c-p2;
+            }
+
+            .p3 {
+                background-color: $c-p3;
+            }
+
+            .p4 {
+                background-color: $c-p4;
             }
         }
     }

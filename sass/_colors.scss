@@ -1,20 +1,39 @@
-
+/* Course: SENG 513 */
+/* Date: OCT 12, 2023 */
+/* Assignment 2 */
+/* Name: Raine Legary */
+/* UCID: 30123317 */
 
 // menu colors
-$c-header: #000;
-$c-button: #000;
+$c-header: #04131f;
+$c-button: #1f1364;
+$c-button-border: #3645ed;
+$c-button-text: #fff;
+$c-slider-bg: #deedf5;
+$c-slider-thumb: #1d0d0c;
+$c-slider-thumb-border: #5e32f1;
+$c-text-bg: #302f2fd6;
+$c-primary-border: #1a0d0b;
+
+// specific menu colors
 $c-wind-dir-circle: #a6d9e3;
+$c-defense: #507ceb;
+$c-defense-offense: #fff;
+$c-offense: #e72721;
+$c-deploying: rgb(152, 247, 128);
+$c-gathering: rgb(239, 119, 119);
 
 // board colors
 $c-board-bg: #492626;
-$c-tile: #2659b0;
+$c-tile: #226f3a;
 $c-tile-border: #000;
 
 // player colors
-$c-pink: #ec4db4;
-$c-green: #5dcc61;
-$c-lightblue: #50bfe7;
-$c-darkblue: #5d4dd8;
-$c-yellow: #ecdd16;
-$c-purple: #a011ba;
+$c-p1: #d5ab36;
+$c-p2: #2491b8;
+$c-p3: #5a4acf;
+$c-p4: #cd4d23;
+
+// flexible colors
+$c-current-player: $c-p1;
 

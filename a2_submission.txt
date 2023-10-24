@@ -1,0 +1,4 @@
+Full name: Raine Legary
+Git username: rainelegary
+Repo link: https://github.com/rainelegary/SENG513Game
+Repo name: SENG513Game
