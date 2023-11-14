@@ -123,7 +123,8 @@ header #header-left #wind-direction #wind-dir-circle {
   cursor: pointer;
 }
 header #header-left #wind-direction #wind-dir-circle img {
-  transform: rotate(315deg);
+  transition: transform 0.5s;
+  user-select: none;
 }
 header #header-left #defense-offense {
   display: flex;
@@ -185,7 +186,7 @@ header #header-left #deploy-gather #deploying-button {
 }
 header #header-left #deploy-gather #gathering-button {
   display: none;
-  color: rgb(239, 119, 119);
+  color: rgb(241, 36, 36);
   margin: 8px 0px 0px;
 }
 header #header-right {
@@ -212,6 +213,9 @@ header #header-right #new-game #num-players {
   justify-content: space-evenly;
   padding: 8px 0;
   display: visible;
+}
+header #header-right #new-game #num-players button {
+  display: none;
 }
 @media only screen and (max-width: 1024px) {
   header #header-left {
@@ -251,32 +255,18 @@ header button {
 #board #grid {
   background-color: #492626;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
   width: calc(var(--board-sz) * 1.1);
   height: calc(var(--board-sz) * 1.1);
+  border: calc(var(--board-sz) * 0.05) solid #492626;
 }
-#board #grid .board-row {
-  display: flex;
-  width: var(--board-sz);
-  height: var(--tile-sz);
-}
-#board #grid .board-row div {
+#board #grid .tile {
   background-color: #226f3a;
   width: var(--tile-sz);
   height: var(--tile-sz);
   border: 1px solid #492626;
-}
-#board #grid .board-row .p1 {
-  background-color: #d5ab36;
-}
-#board #grid .board-row .p2 {
-  background-color: #2491b8;
-}
-#board #grid .board-row .p3 {
-  background-color: #5a4acf;
-}
-#board #grid .board-row .p4 {
-  background-color: #cd4d23;
+  transition: background-color 0.5s;
 }/*# sourceMappingURL=main.css.map */

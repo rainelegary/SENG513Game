@@ -138,7 +138,9 @@ header {
                 cursor: pointer;
     
                 img {
-                    transform: rotate(315deg);
+                    transition: transform 0.5s;
+                    // transform: rotate(315deg);
+                    user-select: none;
                 }
             }
         }
@@ -245,6 +247,10 @@ header {
                 justify-content: space-evenly;
                 padding: 8px 0;
                 display: visible;
+
+                button {
+                    display: none;
+                }
             }
         }
     }
@@ -291,39 +297,20 @@ header {
     #grid {
         background-color: $c-board-bg;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
         width: calc(var(--board-sz) * 1.1);
         height: calc(var(--board-sz) * 1.1);
-        
-        .board-row {
-            display: flex;
-            width: var(--board-sz);
+        border: calc(var(--board-sz) * 0.05) solid $c-board-bg;
+
+        .tile {
+            background-color: $c-tile;
+            width: var(--tile-sz);
             height: var(--tile-sz);
-            
-            div {
-                background-color: $c-tile;
-                width: var(--tile-sz);
-                height: var(--tile-sz);
-                border: 1px solid $c-board-bg;
-            }
-
-            .p1 {
-                background-color: $c-p1;
-            }
-
-            .p2 {
-                background-color: $c-p2;
-            }
-
-            .p3 {
-                background-color: $c-p3;
-            }
-
-            .p4 {
-                background-color: $c-p4;
-            }
+            border: 1px solid $c-board-bg;
+            transition: background-color 0.5s;
         }
     }
 }
